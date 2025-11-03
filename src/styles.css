@@ -1,0 +1,10 @@
+body{ font-family: Inter, system-ui, Arial; padding:20px; }
+.app{ max-width:900px; margin:0 auto; }
+.calendar{ display:grid; grid-template-columns: repeat(7,1fr); gap:8px; }
+.day{ min-height:80px; border:1px solid #ddd; padding:6px; position:relative; cursor:pointer; }
+.label{ font-weight:600; }
+.badge{ position:absolute; right:6px; top:6px; background:#222; color:#fff; padding:4px 6px; border-radius:12px; }
+.modal{ position:fixed; inset:0; display:flex; align-items:center; justify-content:center; background: rgba(0,0,0,0.4); }
+.modal-content{ background:#fff; padding:20px; border-radius:8px; width:90%; max-width:600px; }
+.close{ float:right; }
+.form input, .form textarea{ display:block; width:100%; margin-bottom:8px; padding:6px; }
