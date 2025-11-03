@@ -1,4 +1,4 @@
-body{ font-family: Inter, system-ui, Arial; padding:20px; }
+body{ font-family: Inter, system-ui, Arial; padding:20px; display: block !important; }
 .app{ max-width:900px; margin:0 auto; }
 .calendar{ display:grid; grid-template-columns: repeat(7,1fr); gap:8px; }
 .day{ min-height:80px; border:1px solid #ddd; padding:6px; position:relative; cursor:pointer; }
