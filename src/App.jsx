@@ -1,46 +1,47 @@
-import React, { useState } from 'react';
-import Calendar from './components/Calendar';
-import DayModal from './components/DayModal';
+// src/App.jsx
+import React, { useState } from "react";
+import Calendar from "./components/Calendar";
+import DayModal from "./components/DayModal";
 
-
-export default function App(){
+export default function App() {
   const [selectedDate, setSelectedDate] = useState(null);
-  const [currentMonth, setCurrentMonth] = useState(new Date().getMonth());
-  const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
-
-  const nextMonth = () => {
-    if(currentMonth === 11){
-      setCurrentMonth(0);
-      setCurrentYear(currentYear + 1);
-    } else {
-      setCurrentMonth(currentMonth + 1);
-    }
-  }
+  const [month, setMonth] = useState(new Date().getMonth());
+  const [year, setYear] = useState(new Date().getFullYear());
 
   const prevMonth = () => {
-    if(currentMonth === 0){
-      setCurrentMonth(11);
-      setCurrentYear(currentYear - 1);
+    if (month === 0) {
+      setMonth(11);
+      setYear(year - 1);
     } else {
-      setCurrentMonth(currentMonth - 1);
+      setMonth(month - 1);
     }
-  }
+  };
+
+  const nextMonth = () => {
+    if (month === 11) {
+      setMonth(0);
+      setYear(year + 1);
+    } else {
+      setMonth(month + 1);
+    }
+  };
 
   return (
     <div className="app">
-      <h1>Calendario de Pedidos</h1>
-      <div className="month-nav">
-        <button onClick={prevMonth}>⬅</button>
-        <span>{currentMonth+1} / {currentYear}</span>
-        <button onClick={nextMonth}>➡</button>
-      </div>
-      <Calendar 
-        onSelectDate={(d)=>setSelectedDate(d)}
-        month={currentMonth}
-        year={currentYear}
+      <header style={{display:'flex',alignItems:'center',justifyContent:'space-between', maxWidth:900, margin:'0 auto'}}>
+        <button onClick={prevMonth}>◀</button>
+        <h1 style={{textAlign:'center'}}>{new Date(year, month).toLocaleString('es-ES',{month:'long', year:'numeric'})}</h1>
+        <button onClick={nextMonth}>▶</button>
+      </header>
+
+      <Calendar
+        onSelectDate={(isoDate) => setSelectedDate(isoDate)}
+        month={month}
+        year={year}
       />
+
       {selectedDate && (
-        <DayModal date={selectedDate} onClose={()=>setSelectedDate(null)} />
+        <DayModal date={selectedDate} onClose={() => setSelectedDate(null)} />
       )}
     </div>
   );

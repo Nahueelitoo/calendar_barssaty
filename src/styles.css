@@ -1,10 +1,141 @@
-body{ font-family: Inter, system-ui, Arial; padding:20px; display: block !important; }
-.app{ max-width:900px; margin:0 auto; }
-.calendar{ display:grid; grid-template-columns: repeat(7,1fr); gap:8px; }
-.day{ min-height:80px; border:1px solid #ddd; padding:6px; position:relative; cursor:pointer; }
-.label{ font-weight:600; }
-.badge{ position:absolute; right:6px; top:6px; background:#222; color:#fff; padding:4px 6px; border-radius:12px; }
-.modal{ position:fixed; inset:0; display:flex; align-items:center; justify-content:center; background: rgba(0,0,0,0.4); }
-.modal-content{ background:#fff; padding:20px; border-radius:8px; width:90%; max-width:600px; }
-.close{ float:right; }
-.form input, .form textarea{ display:block; width:100%; margin-bottom:8px; padding:6px; }
+/* src/styles.css - estilos globales */
+body{ 
+    font-family: Inter, system-ui, Arial;
+    padding:20px;
+    display: block !important;
+    margin:0;
+    background:#cfcac7; }
+.app {
+  max-width: 1200px;
+  margin: 40px auto;
+  text-align: center;
+}
+
+/* Encabezado del calendario */
+header {
+  max-width: 900px;
+  margin: 10px auto 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header button {
+  background: #f1f1f1;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+header button:hover {
+  background: #ddd;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 50px;
+  font-weight: 600;
+  padding-bottom: 2%;
+  text-transform: capitalize;
+}
+
+/* ======== CALENDARIO ======== */
+.calendar {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 12px;
+  justify-content: center;
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.day {
+  width: 140px;
+  height: 120px;
+  border-radius: 10px;
+  background: white;
+  padding: 10px;
+  position: relative;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: 0.15s ease-in-out;
+}
+
+.day:hover {
+  transform: scale(1.05);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+}
+
+.label {
+  font-weight: 600;
+  font-size: 20px;
+  align-self: flex-start;
+}
+
+.badge {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  background: #222;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 14px;
+  font-size: 14px;
+}
+
+.day.crossed::after {
+  content: "✖";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 34px;
+  color: #444;
+  opacity: 0.5;
+}
+
+
+.modal {
+  position:fixed;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background: rgba(0,0,0,0.4);
+  z-index:999;
+}
+
+.modal-content {
+  background:white;
+  padding:18px;
+  border-radius:8px;
+  width:90%;
+  max-width:700px;
+  max-height:80vh;
+  overflow:auto;
+}
+
+.close { float:right; background:none; border:none; cursor:pointer; }
+
+.form input, .form textarea { display:block; width:100%; margin-bottom:8px; padding:8px; border:1px solid #ddd; border-radius:6px; }
+
+.pedido-item {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  border-bottom:1px solid #eee;
+  padding:8px 0;
+}
+
+.btn-delete {
+  background:#ff4d4d;
+  color:white;
+  border:none;
+  padding:6px 10px;
+  border-radius:6px;
+  cursor:pointer;
+}
