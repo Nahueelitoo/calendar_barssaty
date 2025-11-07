@@ -139,3 +139,18 @@ header h1 {
   border-radius:6px;
   cursor:pointer;
 }
+
+.calendar-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 140px);
+  gap: 12px;
+  justify-content: center;
+  width: fit-content;
+  margin: 0 auto 10px;
+}
+
+.weekday {
+  text-align: center;
+  font-weight: 600;
+  font-size: 18px;
+}
